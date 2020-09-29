@@ -1,0 +1,40 @@
+<app-navbar [uname]="uname"></app-navbar>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpened" [class.menu-open]="!isMenuOpened" opened>
+
+       
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenav-content">
+    
+      
+    <button  mat-raised-button color="accent"  type='button' (click)="getLogs()">Get Audit logs</button>
+    <table class="table">
+        <thead>
+          <tr  >
+            <th scope="col">username</th>
+            <th scope="col">Role</th>
+            <th scope="col">login time</th>
+            <th scope="col">logout time</th>
+         </tr>
+        </thead>
+    
+        <tbody>
+         
+          <tr *ngFor="let user of auditlog">
+            <td scope="row">
+           {{user.username}}
+            </td>
+            <td>
+               {{user.role}}
+            </td>
+            <td>{{user.signintime}}</td>
+            <td>{{user.signouttime}}</td>        
+          </tr>
+        </tbody>
+      </table>  
+        <br />
+        <br />
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-footer></app-footer>
