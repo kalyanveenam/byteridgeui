@@ -45,6 +45,7 @@ export class DashboardComponent implements OnInit {
   public id;
   public friendID;
   onlineUsers = [];
+  isAuditor=localStorage.getItem('isAuditor');
   public auditlog:any=[];
   uname: any = localStorage.getItem('name')
   allComplete: boolean = false;

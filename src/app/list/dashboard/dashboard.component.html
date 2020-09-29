@@ -7,7 +7,9 @@
     <mat-sidenav-content class="sidenav-content">
     
       
-    <button  mat-raised-button color="accent"  type='button' (click)="getLogs()">Get Audit logs</button>
+    <button *ngIf="isAuditor" mat-raised-button color="accent"  type='button' (click)="getLogs()">Get Audit logs</button>
+   <p *ngIf="isAuditor"> CLick on Audit logs to view login and logout time of Registered users</p>
+   <p *ngIf="!isAuditor">You do not have Access to view Audit logs!</p>
     <table class="table">
         <thead>
           <tr  >

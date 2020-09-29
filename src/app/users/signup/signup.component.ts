@@ -56,14 +56,15 @@ export class SignupComponent implements OnInit {
     password: new FormControl('', [
       Validators.required,
       Validators.pattern('^(?=.*\\d).{8,}$')
-    ])
+    ]),
+    auditor: new FormControl(''),
   });
   ngOnInit(): void {}
   onSubmit() {
 
 
     let signupdata = this.userEmails.value;
-
+console.log(signupdata);
     this.spinner.show();
     this.httpService
       .signup(

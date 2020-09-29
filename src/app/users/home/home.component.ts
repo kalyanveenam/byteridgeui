@@ -48,7 +48,8 @@ export class HomeComponent implements OnInit {
     password: new FormControl('', [
       Validators.required,
       Validators.pattern('^(?=.*\\d).{8,}$')
-    ])
+    ]),
+    auditor: new FormControl('')
   });
   public email;
   onSubmit = () => {
@@ -56,6 +57,8 @@ export class HomeComponent implements OnInit {
       localStorage.setItem('isLoggedin', 'true');
       this.spinner.show();
       let value = this.loginForm.value;
+      console.log(value)
+      localStorage.setItem('isAuditor',value.auditor);
       var currentTime = new Date();
 var currentOffset = currentTime.getTimezoneOffset();
 var ISTOffset = 330;   
